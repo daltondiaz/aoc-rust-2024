@@ -1,8 +1,8 @@
 use std::fs::File;
 
-mod days;
+pub mod days;
 
-fn main() {
+pub fn main() {
     println!("AOC 2024 in Rust");
     let file = File::open("input/day01/demo1.in");
     let day_01_demo = days::day01::solution(file).unwrap();

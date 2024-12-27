@@ -31,6 +31,10 @@ pub fn solution_two(file: io::Result<File>) -> io::Result<i32> {
     Ok(result as i32)
 }
 
+/**
+*
+* @TODO check the sort because is very slow
+*/
 pub fn solution(file: io::Result<File>) -> io::Result<i32> {
     let reader = BufReader::new(file?);
 

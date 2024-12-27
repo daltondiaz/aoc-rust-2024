@@ -14,3 +14,11 @@ fn test_day_01_part_one(){
     let exp = 2756096;
     assert_eq!(exp, res);
 }
+
+#[test]
+fn test_day_01_demo_two(){
+    let file = File::open("input/day01/demo1.in");
+    let res = aoc_rust_2024::days::day01::solution_two(file).unwrap();
+    let exp = 31;
+    assert_eq!(exp, res);
+}

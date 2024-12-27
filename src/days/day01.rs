@@ -2,6 +2,35 @@ use std::{
     fs::File, i32, io::{self, BufRead, BufReader}
 };
 
+pub fn solution_two(file: io::Result<File>) -> io::Result<i32> {
+    let reader = BufReader::new(file?);
+
+    let mut left: Vec<i32> = Vec::new();
+    let mut right: Vec<i32> = Vec::new();
+
+    for line in reader.lines() {
+        let line = line?;
+        let parts: Vec<&str> = line.split_whitespace().collect();
+        let l: i32 = parts[0].parse().unwrap();
+        let r: i32 = parts[1].parse().unwrap();
+        left.push(l);
+        right.push(r);
+    }
+    let mut result  = 0;
+    for l in 0..left.len(){
+        let mut times = 0;
+        for r in 0..right.len(){
+            if left[l] == right[r] {
+                times = times + 1;
+            }
+        }
+        let value = left[l];
+        println!("\t result = {result} + ({times} * {value})");
+        result = result + (times * left[l]);
+    }
+    Ok(result as i32)
+}
+
 pub fn solution(file: io::Result<File>) -> io::Result<i32> {
     let reader = BufReader::new(file?);
 
